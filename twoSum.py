@@ -1,24 +1,21 @@
 
-# Дано масив цілих чисел nums і ціле число,
-# поверніть індекси двох чисел так, щоб їх сума дала передане ціле число.
+class Solution:
+    def __init__(self, nums, target):
+        self.nums = nums
+        self.target = target
 
-# Ви можете припустити, що кожен вхід матиме рівно одне рішення,
-# і ви не можете використовувати той самий елемент двічі.
-
-# Ви можете повернути відповідь у будь-якому порядку.
-
-
-def twoSum(nums, target):
-    diction = {}
-    for i, num in enumerate(nums):
-        m = target - num
-        if m in diction:
-            return print([diction[m], i])
-        else:
-            diction[num] = i
+    def twoSum(self):
+        for i in range(len(self.nums)):
+            for j in range(i + 1, len(self.nums)):
+                if self.nums[j] == self.target - self.nums[i]:
+                    return [i, j]
 
 
-twoSum([1, 2, 3], 4)        # [0, 2]
-twoSum([2, 7, 11, 15], 9)   # [0, 1]
-twoSum([3, 2, 4], 6)        # [1, 2]
-twoSum([3, 3], 6)           # [0, 1]
+sol = Solution([1, 2, 3], 4)
+print(sol.twoSum())  
+sol = Solution([2, 7, 11, 15], 9)
+print(sol.twoSum())
+sol=Solution([3, 2, 4], 6)
+print(sol.twoSum())
+sol = Solution([3, 3], 6)
+print(sol.twoSum())
